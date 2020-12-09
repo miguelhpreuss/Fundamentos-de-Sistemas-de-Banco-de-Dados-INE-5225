@@ -1,6 +1,6 @@
 CREATE TABLE Funcionarios (
   codf int not null primary key,
-  CPF numeric(11) not null,
+  CPF numeric(11) not null unique,
   nome varchar(64) not null,
   fone numeric(11),
   CEP numeric(8),
@@ -12,7 +12,7 @@ CREATE TABLE Funcionarios (
 CREATE TABLE Gerentes(
   codg int not null primary key,
   codf int not null, -- funcionario a ser supervisionado
-  login varchar(32),
+  login varchar(32) unique,
   senha varchar(32)
 );
 
@@ -24,7 +24,7 @@ CREATE TABLE Atendentes(
 
 CREATE TABLE Clientes (
   codc int not null primary key,
-  CPF numeric(11) not null,
+  CPF numeric(11) not null unique,
   nome varchar(64) not null,
   fone numeric(11),
   CEP numeric(8),
@@ -39,7 +39,7 @@ CREATE TABLE Vendas(
   coda int not null,
   codc int not null,
   codProduto int not null,
-  valor int not null
+  valor float not null
 );
 
 CREATE TABLE TrocasEdevolucoes(
@@ -75,13 +75,13 @@ CREATE TABLE Encomendas (
   codEncomenda int not null primary key,
   codg int not null,
   code int not null,
-  CNPJ numeric(14) not null,
+  CNPJ numeric(14) not null unique,
   -- codProduto int not null,
   valor float not null
 );
 
 CREATE TABLE Fornecedores(
-  CNPJ numeric(14) not null primary key,
+  CNPJ numeric(14) not null unique primary key,
   fone numeric(11),
   CEP numeric(8),
   rua varchar(32),
