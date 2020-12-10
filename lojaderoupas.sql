@@ -1,3 +1,7 @@
+-- Fundamentos de Sistemas de Banco de Dados INE5225-08220
+-- Banco de Dados - Loja de Roupa - Trabalho 2
+-- Equipe: Augusto Hideki, Miguel Hellmann Preuss, Thiago Cunha, Tomas Drews 
+
 CREATE TABLE Modelos(
   CodM int not null primary key,
   marca varchar(32),
@@ -80,7 +84,6 @@ CREATE TABLE Encomendas(
   quantidade int,
   valor float not null
 );
-
 CREATE TABLE Fornecedores(
   CNPJ numeric(14) not null unique primary key,
   CodFone int not null,
